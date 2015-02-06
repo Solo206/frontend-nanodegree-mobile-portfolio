@@ -536,7 +536,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza-krak.png";
-    elem.style.height = "100px";
+    elem.style.height = "200px";
     elem.style.width = "73.333px";
     //set the initial, horizontal positions of the pizzas as recommended in piazza @1017
     elem.style.left = ((i % cols) * s) + 'px';

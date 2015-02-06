@@ -432,14 +432,11 @@ var resizePizzas = function(size) {
     function sizeSwitcher (size) {
       switch(size) {
         case "1":
-          document.querySelector("pizzaSize").innerHTML="Small";
-          return;
+          return 0.25;
         case "2":
-          document.querySelector("pizzaSize").innerHTML="Medium";
-          return;
+          return 0.3333;
         case "3":
-                document.querySelector("pizzaSize").innerHTML="Large";
-          return;
+          return 0.5;
         default:
           console.log("bug in sizeSwitcher");
       }
