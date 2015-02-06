@@ -495,7 +495,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   console.log("Average time to generate last 10 frames: " + sum / 10 + "ms");
 }
 
-var items=document.querySelectorAll('.mover'), latestKnownScrollY=0, tickingfalse;
+// var items=document.querySelectorAll('.mover'), latestKnownScrollY=0, tickingfalse;
 
 //request for animation frame;
 rAF = window.requestAnimationFrame;
@@ -510,10 +510,11 @@ function updatePositions() {
 
   var scrollOnTop=document.body.scrollTop/1250;
   var items = document.querySelectorAll('.mover');
+  var lengthOfItems=items.length;
   for (var i = 0; i < lengthOfItems; i++) {
     var phase = Math.sin((scrollOnTop) + (i % 5));
     // items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    items[i].style.left = 'translateX(' + (100 * phase) + 'px)';
+    items[i].style.transform = 'translateX(' + (100 * phase) + 'px)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -545,6 +546,5 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   items=document.querySelectorAll('.mover');
-  lengthOfItems=items.length;
   rAF(updatePositions();
 });
