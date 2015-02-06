@@ -512,7 +512,7 @@ function updatePositions() {
   var sTop = document.body.scrollTop / 1250;
   for (var i = 0; i < numberOfItems; i++) {
     var phase = Math.sin((sTop) + (i % 5));
-    items[i].style.transform = 'translate3d(' + (100*phase) + 'px, 0, 0)';
+    items[i].style.transform = 'translate3d(' + (300*phase) + 'px, 0, 0)';
   }
   //learned translate tip from @1198 on piazza
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -536,7 +536,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza-krak.png";
-    elem.style.height = "200px";
+    elem.style.height = "100px";
     elem.style.width = "73.333px";
     //set the initial, horizontal positions of the pizzas as recommended in piazza @1017
     elem.style.left = ((i % cols) * s) + 'px';
