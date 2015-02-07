@@ -540,7 +540,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     //set the initial, horizontal positions of the pizzas as recommended in piazza @1017
     elem.style.left = ((i % cols) * s) + 'px';
-    elem.style.top = (Math.floor(100 / cols) * s) + 'px';
+    elem.style.top = (Math.floor(300 / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   //moved these to global scope here because they are not created
