@@ -515,7 +515,8 @@ function updatePositions() {
   for (var i = 0; i < lengthOfItems; i++) {
     var phase = Math.sin((scrollOnTop) + (i % 5));
     console.log(phase);
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    // items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    console.log(items[i].basicLeft + 100 * phase + 'px');
     // items[i].style.transform = 'translateX(' + (100 * scrollOnTop + (i % 5)) + 'px)';
   }
 
@@ -549,12 +550,11 @@ window.addEventListener('scroll', updatePositions);
     elem.basicLeft = ((i % cols) * s ) + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     pizzaContainer.appendChild(elem);
-    pizzaContainer.appendChild(elem);
-    
+
   }
   // items=document.querySelectorAll('.mover');
   pizzaContainer.display='block';
-  // updatePositions();
+  window.requestAnimationFrame(updatePositions);
 }
 
   if (document.readystate!="loading"){
