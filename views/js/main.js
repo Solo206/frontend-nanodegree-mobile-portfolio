@@ -518,7 +518,7 @@ function updatePositions() {
     // items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
     // console.log(items[i].basicLeft);
     // console.log(items[i].basicLeft + (100 * phase + 'px'));
-    items[i].style.left=1000px;
+    items[i].style.left=1000+'px';
     // items[i].style.transform = 'translateX(' + (100 * scrollOnTop + (i % 5)) + 'px)';
   }
 
