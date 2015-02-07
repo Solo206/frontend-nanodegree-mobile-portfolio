@@ -537,7 +537,7 @@ window.addEventListener('scroll', updatePositions);
 
   var pizzaContainer=document.querySelector("#movingPizzas1");
   pizzaContainer.display='none';
-  for (var i = 0; i < 50; i++) {
+  for (var i = 0; i < 40; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza-krak.png";
@@ -550,7 +550,7 @@ window.addEventListener('scroll', updatePositions);
   }
   // items=document.querySelectorAll('.mover');
   pizzaContainer.display='block';
-  rAF(updatePositions());
+  updatePositions();
 }
 
   if (document.readystate!="loading"){
