@@ -451,9 +451,9 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
     var createdPizzas = document.querySelectorAll(".randomPizzaContainer");
+    var dx = determineDx(createdPizzas[i], size);
+    var newwidth = (createdPizzas[i].offsetWidth + dx) + 'px';
     for (var i = 0; i < createdPizzas.length; i++) {
-      var dx = determineDx(createdPizzas[i], size);
-      var newwidth = (createdPizzas[i].offsetWidth + dx) + 'px';
       createdPizzas[i].style.width = newwidth;
     }
   }
@@ -537,7 +537,7 @@ window.addEventListener('scroll', updatePositions);
 
   var pizzaContainer=document.querySelector("#movingPizzas1");
   pizzaContainer.display='none';
-  for (var i = 0; i < 300; i++) {
+  for (var i = 0; i < 40; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza-krak.png";
