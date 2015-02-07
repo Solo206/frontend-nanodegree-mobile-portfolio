@@ -550,7 +550,7 @@ window.addEventListener('scroll', updatePositions);
   }
   // items=document.querySelectorAll('.mover');
   pizzaContainer.display='block';
-  rAF(updatePositions();
+  rAF(updatePositions());
 }
 
   if (document.readystate!="loading"){
