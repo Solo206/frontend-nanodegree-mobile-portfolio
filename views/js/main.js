@@ -549,6 +549,8 @@ window.addEventListener('scroll', updatePositions);
     elem.basicLeft = ((i % cols) * s ) + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     pizzaContainer.appendChild(elem);
+    pizzaContainer.appendChild(elem);
+    
   }
   // items=document.querySelectorAll('.mover');
   pizzaContainer.display='block';
