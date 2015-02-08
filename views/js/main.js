@@ -535,7 +535,7 @@ function updatePositions() {
 }
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', window.requestAnimationFrame(updatePositions));
+window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
  function slidingPizza() {
@@ -543,7 +543,7 @@ window.addEventListener('scroll', window.requestAnimationFrame(updatePositions))
   var s = 256;
 
   var pizzaContainer=document.querySelector("#movingPizzas1");
-  pizzaContainer.display='none';
+  // pizzaContainer.display='none';
   for (var i = 0; i < 40; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
@@ -556,8 +556,11 @@ window.addEventListener('scroll', window.requestAnimationFrame(updatePositions))
     pizzaContainer.appendChild(elem);
 
   }
-  // items=document.querySelectorAll('.mover');
-  pizzaContainer.display='block';
+  
+  // pizzaContainer.display='block';
+
+  //http://www.html5rocks.com/en/tutorials/speed/animations/
+
   window.requestAnimationFrame(updatePositions);
 }
 
