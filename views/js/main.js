@@ -538,7 +538,7 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
- function slidingPizza() {
+ document.addEventListener('DOMContentLoaded',function() {
   var cols = 8;
   var s = 256;
 
@@ -559,7 +559,7 @@ window.addEventListener('scroll', updatePositions);
   // items=document.querySelectorAll('.mover');
   pizzaContainer.display='block';
   rAF(updatePositions);
-}
+});
 
   // if (document.readystate!="loading"){
   //   slidingPizza();
