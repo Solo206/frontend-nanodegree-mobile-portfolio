@@ -515,12 +515,12 @@ function updatePositions() {
   for (var i = 0; i < lengthOfItems; i++) {
     var phase = Math.sin((scrollOnTop) + (i % 5));
     // console.log(phase);
-    items[i].style.left = items[i].basicLeft + 100 * i * phase + 'px';
+    // items[i].style.left = items[i].basicLeft + 100 * i * phase + 'px';
     // console.log(items[i].basicLeft);
     // console.log(items[i].basicLeft + (100 * phase + 'px'));
     // items[i].style.left=1700+'px';
     // items[i].style.transform = 'translateX(' + (100 * scrollOnTop + (i % 5)) + 'px)';
-    items[i].style.transform = 'translateX(' + 100*phase*i + 'px)';
+    items[i].style.transform = 'translateX(' + 100*phase + 'px)';
 
   }
 
