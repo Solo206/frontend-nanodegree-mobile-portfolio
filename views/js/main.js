@@ -543,7 +543,8 @@ window.addEventListener('scroll', updatePositions);
   var s = 256;
 
   var pizzaContainer=document.querySelector("#movingPizzas1");
-  // pizzaContainer.display='none';
+  //do not need to display until all the calls are done. 
+  pizzaContainer.display='none';
   for (var i = 0; i < 40; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
@@ -556,16 +557,16 @@ window.addEventListener('scroll', updatePositions);
     pizzaContainer.appendChild(elem);
 
   }
-  
-  // pizzaContainer.display='block';
+
+  pizzaContainer.display='block';
 
   //http://www.html5rocks.com/en/tutorials/speed/animations/
 
   window.requestAnimationFrame(updatePositions);
 }
 
-  if (document.readystate!="loading"){
-    slidingPizza();
-  } else {
-    document.addEventListener("DOMContentLoaded", slidingPizza());
-  }
+  // if (document.readystate!="loading"){
+  //   slidingPizza();
+  // } else {
+  //   document.addEventListener("DOMContentLoaded", slidingPizza());
+  // }
