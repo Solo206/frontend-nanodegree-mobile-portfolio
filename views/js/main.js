@@ -565,8 +565,8 @@ window.addEventListener('scroll', updatePositions);
   window.requestAnimationFrame(updatePositions);
 }
 
-  // if (document.readystate!="loading"){
-  //   slidingPizza();
-  // } else {
-  //   document.addEventListener("DOMContentLoaded", slidingPizza());
-  // }
+  if (document.readystate!="loading"){
+    slidingPizza();
+  } else {
+    document.addEventListener("DOMContentLoaded", slidingPizza());
+  }
