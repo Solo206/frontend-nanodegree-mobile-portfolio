@@ -543,7 +543,6 @@ window.addEventListener('scroll', updatePositions);
   var s = 256;
 
   var pizzaContainer=document.querySelector("#movingPizzas1");
-  //do not need to display until all the calls are done. 
   pizzaContainer.display='none';
   for (var i = 0; i < 40; i++) {
     var elem = document.createElement('img');
@@ -557,12 +556,9 @@ window.addEventListener('scroll', updatePositions);
     pizzaContainer.appendChild(elem);
 
   }
-
+  // items=document.querySelectorAll('.mover');
   pizzaContainer.display='block';
-
-  //http://www.html5rocks.com/en/tutorials/speed/animations/
-
-  window.requestAnimationFrame(updatePositions);
+  rAF(updatePositions);
 }
 
   if (document.readystate!="loading"){
