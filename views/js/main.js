@@ -520,6 +520,8 @@ function updatePositions() {
     // console.log(items[i].basicLeft + (100 * phase + 'px'));
     // items[i].style.left=1700+'px';
     // items[i].style.transform = 'translateX(' + (100 * scrollOnTop + (i % 5)) + 'px)';
+    items[i].style.transform = 'translateX(' + 100*phase*i + 'px)';
+
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
