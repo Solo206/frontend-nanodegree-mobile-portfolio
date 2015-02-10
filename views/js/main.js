@@ -496,7 +496,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   console.log("Average time to generate last 10 frames: " + sum / 10 + "ms");
 }
 
-// var items=document.querySelectorAll('.mover'), latestKnownScrollY=0, tickingfalse;
+
 
 //request for animation frame;
 rAF = window.requestAnimationFrame;
@@ -511,15 +511,11 @@ function updatePositions() {
   var items = document.querySelectorAll('.mover');
   var scrollOnTop=document.body.scrollTop/1250;
   var lengthOfItems=items.length;
-  // console.log(scrollOnTop);
+  
+  //moves pizzas horizontally based on scroll length
   for (var i = 0; i < lengthOfItems; i++) {
     var phase = Math.sin((scrollOnTop) + (i % 5));
-    // console.log(phase);
-    // items[i].style.left = items[i].basicLeft + 100 * i * phase + 'px';
-    // console.log(items[i].basicLeft);
-    // console.log(items[i].basicLeft + (100 * phase + 'px'));
-    // items[i].style.left=1700+'px';
-    // items[i].style.transform = 'translateX(' + (100 * scrollOnTop + (i % 5)) + 'px)';
+
     items[i].style.transform = 'translateX(' + 100*phase + 'px)';
 
   }
@@ -543,6 +539,8 @@ window.addEventListener('scroll', updatePositions);
   var s = 256;
 
   var pizzaContainer=document.querySelector("#movingPizzas1");
+  
+//limit painting done on page
   pizzaContainer.display='none';
   for (var i = 0; i < 40; i++) {
     var elem = document.createElement('img');
@@ -550,17 +548,21 @@ window.addEventListener('scroll', updatePositions);
     elem.src = "images/pizza-krak.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    // elem.style.left = (i % cols) *s + 'px';
+    
+    //places sliding pizzas into page
     elem.style.left = ((i % cols) * s ) + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     pizzaContainer.appendChild(elem);
 
   }
-  // items=document.querySelectorAll('.mover');
+
+//paint sliding pizzas after all pizzas are instantiated.
   pizzaContainer.display='block';
+
+  //use requestAnimationFrame for updates of subsequent pizzas
   rAF(updatePositions);
 }
 
-
+//once DOm is loaded call movingPizza to be instantiated.
   document.addEventListener("DOMContentLoaded", movingPizza());
 
