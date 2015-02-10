@@ -496,10 +496,6 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   console.log("Average time to generate last 10 frames: " + sum / 10 + "ms");
 }
 
-// var items=document.querySelectorAll('.mover'), latestKnownScrollY=0, tickingfalse;
-
-//request for animation frame;
-rAF = window.requestAnimationFrame;
 
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
@@ -550,7 +546,6 @@ function slidingPizza() {
     elem.src = "images/pizza-krak.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    // elem.style.left = (i % cols) *s + 'px';
     elem.style.left = ((i % cols) * s ) + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     pizzaContainer.appendChild(elem);
@@ -558,7 +553,7 @@ function slidingPizza() {
   }
   // items=document.querySelectorAll('.mover');
   pizzaContainer.display='block';
-  rAF(updatePositions);
+  window.requestAnimationFrame(updatePositions);
 });
 
   if (document.readystate!="loading"){
