@@ -556,9 +556,8 @@ function slidingPizza() {
   window.requestAnimationFrame(updatePositions);
 });
 
-  // if (document.readystate!="loading"){
-  //   slidingPizza();
-  // } else {
-  //   document.addEventListener("DOMContentLoaded", slidingPizza());
-  // }
-slidingPizza();
+  if (document.readystate!="loading"){
+    slidingPizza();
+  } else {
+    document.addEventListener("DOMContentLoaded", slidingPizza());
+  }
