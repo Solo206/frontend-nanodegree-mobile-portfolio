@@ -400,7 +400,7 @@ var pizzaElementGenerator = function(i) {
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) { 
-  window.performance.now("mark_start_resize");   // User Timing API function
+  window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
   function changeSliderLabel(size) {
@@ -461,13 +461,13 @@ var resizePizzas = function(size) {
   changePizzaSizes(size);
 
   // User Timing API is awesome
-  window.performance.now("mark_end_resize");
+  window.performance.mark("mark_end_resize");
   window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
   var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
   console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
 }
 
-window.performance.now("mark_start_generating"); // collect timing data
+window.performance.mark("mark_start_generating"); // collect timing data
 
 //Move to outside, pizzaDiv to reduce number of calls.
 var pizzasDiv = document.getElementById("randomPizzas");
@@ -477,7 +477,7 @@ for (var i = 2; i < 100; i++) {
 }
 
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
-window.performance.now("mark_end_generating");
+window.performance.mark("mark_end_generating");
 window.performance.measure("measure_pizza_generation", "mark_start_generating", "mark_end_generating");
 var timeToGenerate = window.performance.getEntriesByName("measure_pizza_generation");
 console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "ms");
@@ -503,7 +503,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
-  window.performance.now("mark_start_frame");
+  window.performance.mark("mark_start_frame");
   var items = document.querySelectorAll('.mover');
   var scrollOnTop=document.body.scrollTop/1250;
   var lengthOfItems=items.length;
@@ -522,7 +522,7 @@ function updatePositions() {
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
-  window.performance.now("mark_end_frame");
+  window.performance.mark("mark_end_frame");
   window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
   if (frame % 10 === 0) {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
@@ -534,7 +534,7 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
-function slidingPizza() {
+    document.addEventListener("DOMContentLoaded", slidingPizza()) {
   var cols = 8;
   var s = 256;
 
@@ -546,6 +546,7 @@ function slidingPizza() {
     elem.src = "images/pizza-krak.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
+    // elem.style.left = (i % cols) *s + 'px';
     elem.style.left = ((i % cols) * s ) + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     pizzaContainer.appendChild(elem);
@@ -553,11 +554,11 @@ function slidingPizza() {
   }
   // items=document.querySelectorAll('.mover');
   pizzaContainer.display='block';
-  updatePositions();
-}
+  window.requestAnimationFrame(updatePositions);
+});
 
-  if (document.readystate!="loading"){
-    slidingPizza();
-  } else {
-    document.addEventListener("DOMContentLoaded", slidingPizza());
-  }
+  // if (document.readystate!="loading"){
+  //   slidingPizza();
+  // } else {
+  //   document.addEventListener("DOMContentLoaded", slidingPizza());
+  // }
