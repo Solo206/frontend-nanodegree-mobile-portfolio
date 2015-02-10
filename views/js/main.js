@@ -554,7 +554,7 @@ function slidingPizza() {
   // items=document.querySelectorAll('.mover');
   pizzaContainer.display='block';
   updatePositions();
-});
+}
 
   if (document.readystate!="loading"){
     slidingPizza();
